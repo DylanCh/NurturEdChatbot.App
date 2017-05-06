@@ -2,7 +2,7 @@
 
     var nurturedApp = angular.module("nurturedApp",[]);
 
-    nurturedApp.controller("ctrller",['$scope', '$http',function($scope, $http){
+    nurturedApp.controller("ctrller",['$scope', '$http', function($scope, $http){
         $scope.apis =[
             {'id':0, 'apiUrl':'https://esllearning2.mybluemix.net/chat?isay=', 'label':'NurturEd ChatBot'},
             {'id':1, 'apiUrl':'https://esllearning2.mybluemix.net/slackbot?isay=', 'label':'SlackBot'},
@@ -12,9 +12,15 @@
 
         $scope.selectedApi = $scope.apis[1];
 
+        $scope.updateAPI = function(){
+            var index = $('#robotSelector').val();
+            $scope.selectedApi = $scope.apis[index];
+        }
+
         $scope.textParameter = '';
 
         $scope.btnTest_click = function(){
+            console.log('Selected '+$scope.selectedApi.id);
             $http({
                 url : $scope.selectedApi.apiUrl,
                 method : 'GET',
@@ -34,7 +40,7 @@
                 console.log(response);
                 $('#errorDiv').append(response);
             });
-        };
-    }]);
+        }; // end onclick
+    }]); // end controller
 
 })();
