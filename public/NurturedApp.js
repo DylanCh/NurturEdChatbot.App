@@ -14,7 +14,7 @@
 
         $scope.textParameter = '';
 
-        $scope.btnTest_click = function($http){
+        $scope.btnTest_click = function(){
             $http({
                 url : $scope.selectedApi.apiUrl,
                 method : 'GET',
@@ -31,6 +31,7 @@
                 }
             },
             function(response){
+                console.log(response);
                 $('#errorDiv').append(response);
             });
         };
