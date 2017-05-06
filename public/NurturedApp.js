@@ -1,8 +1,8 @@
 (function () {
 
-    var textValidator = angular.module("nurturedApp",[]);
+    var nurturedApp = angular.module("nurturedApp",[]);
 
-    textValidator.controller("ctrller",function($scope){
+    nurturedApp.controller("ctrller",['$scope', '$http',function($scope, $http){
         $scope.apis =[
             {'id':0, 'apiUrl':'https://esllearning2.mybluemix.net/chat?isay=', 'label':'NurturEd ChatBot'},
             {'id':1, 'apiUrl':'https://esllearning2.mybluemix.net/slackbot?isay=', 'label':'SlackBot'},
@@ -23,6 +23,6 @@
                 $('#response').append(data);
             });
         };
-    });
+    }]);
 
 })();
