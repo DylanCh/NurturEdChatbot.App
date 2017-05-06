@@ -13,6 +13,7 @@
         $scope.selectedApi = $scope.apis[1];
 
         $scope.updateAPI = function(){
+            console.log('API #'+$scope.selectedApi.id);
             var index = $('#robotSelector').val();
             $scope.selectedApi = $scope.apis[index];
         }
