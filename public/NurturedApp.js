@@ -21,7 +21,7 @@
         $scope.textParameter = '';
 
         $scope.btnTest_click = function(){
-            console.log('Selected '+$scope.selectedApi.id);
+            console.log('Selected '+$scope.selectedApi.apiUrl);
             $http.jsonp($scope.selectedApi.apiUrl, {
                 params : $scope.textParameter,
                 timeout : 5000,
