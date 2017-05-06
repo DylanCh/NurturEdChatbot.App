@@ -22,9 +22,7 @@
 
         $scope.btnTest_click = function(){
             console.log('Selected '+$scope.selectedApi.id);
-            $http({
-                url : $scope.selectedApi.apiUrl,
-                method : 'GET',
+            $http.jsonp($scope.selectedApi.apiUrl, {
                 params : $scope.textParameter,
                 timeout : 5000,
                 cache : false
