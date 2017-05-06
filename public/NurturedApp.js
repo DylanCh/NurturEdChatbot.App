@@ -18,9 +18,20 @@
             $http({
                 url : $scope.selectedApi.apiUrl,
                 method : 'GET',
-                params : $scope.textParameter
+                params : $scope.textParameter,
+                timeout : 5000,
+                cache : false
             }).then(function(data){
                 $('#response').append(data);
+                if ( $scope.selectedApi.id == 3){
+                    var api = $scope.selectedApi.apiUrl;
+                    var param = $scope.textParameter;
+                    $('#response').append('<div>Text To Speech demo: <a href="'
+		 				+api+encodeURIComponent(param)+'" target="_blank">click here</a></div>');
+                }
+            },
+            function(response){
+                $('#errorDiv').append(response);
             });
         };
     }]);
